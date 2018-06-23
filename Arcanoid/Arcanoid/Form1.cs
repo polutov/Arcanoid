@@ -16,5 +16,20 @@ namespace Arcanoid
 		{
 			InitializeComponent();
 		}
+
+		private void pnlMainMenu_Paint(object sender, PaintEventArgs e)
+		{
+			
+		}
+
+		private void frmMain_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnExit_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
 	}
 }
