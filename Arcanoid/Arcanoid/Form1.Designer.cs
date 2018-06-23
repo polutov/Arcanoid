@@ -1,6 +1,6 @@
 ﻿namespace Arcanoid
 {
-	partial class Form1
+	partial class frmMain
 	{
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -28,9 +28,23 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+			this.SuspendLayout();
+			// 
+			// frmMain
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Text = "Form1";
+			this.BackColor = System.Drawing.Color.Black;
+			this.ClientSize = new System.Drawing.Size(1006, 721);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.Name = "frmMain";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Arcanoid";
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion
