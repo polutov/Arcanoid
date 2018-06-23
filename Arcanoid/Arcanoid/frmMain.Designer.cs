@@ -30,11 +30,11 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
 			this.pnlMainMenu = new System.Windows.Forms.Panel();
-			this.pbLogo = new System.Windows.Forms.PictureBox();
-			this.lblCredit = new System.Windows.Forms.Label();
-			this.btnNewGame = new System.Windows.Forms.Button();
-			this.btnOptions = new System.Windows.Forms.Button();
 			this.btnExit = new System.Windows.Forms.Button();
+			this.btnOptions = new System.Windows.Forms.Button();
+			this.btnNewGame = new System.Windows.Forms.Button();
+			this.lblCredit = new System.Windows.Forms.Label();
+			this.pbLogo = new System.Windows.Forms.PictureBox();
 			this.pnlMainMenu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
 			this.SuspendLayout();
@@ -51,56 +51,6 @@
 			this.pnlMainMenu.Name = "pnlMainMenu";
 			this.pnlMainMenu.Size = new System.Drawing.Size(1006, 721);
 			this.pnlMainMenu.TabIndex = 0;
-			this.pnlMainMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMainMenu_Paint);
-			// 
-			// pbLogo
-			// 
-			this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-			this.pbLogo.InitialImage = null;
-			this.pbLogo.Location = new System.Drawing.Point(250, 150);
-			this.pbLogo.Name = "pbLogo";
-			this.pbLogo.Size = new System.Drawing.Size(500, 156);
-			this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pbLogo.TabIndex = 0;
-			this.pbLogo.TabStop = false;
-			// 
-			// lblCredit
-			// 
-			this.lblCredit.AutoSize = true;
-			this.lblCredit.ForeColor = System.Drawing.Color.White;
-			this.lblCredit.Location = new System.Drawing.Point(871, 695);
-			this.lblCredit.Name = "lblCredit";
-			this.lblCredit.Size = new System.Drawing.Size(123, 17);
-			this.lblCredit.TabIndex = 1;
-			this.lblCredit.Text = "by Dmytro Polutov";
-			this.lblCredit.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-			// 
-			// btnNewGame
-			// 
-			this.btnNewGame.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnNewGame.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.btnNewGame.Location = new System.Drawing.Point(403, 352);
-			this.btnNewGame.Name = "btnNewGame";
-			this.btnNewGame.Size = new System.Drawing.Size(200, 32);
-			this.btnNewGame.TabIndex = 2;
-			this.btnNewGame.Text = "New Game";
-			this.btnNewGame.UseVisualStyleBackColor = true;
-			// 
-			// btnOptions
-			// 
-			this.btnOptions.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.btnOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnOptions.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.btnOptions.Location = new System.Drawing.Point(403, 390);
-			this.btnOptions.Name = "btnOptions";
-			this.btnOptions.Size = new System.Drawing.Size(200, 32);
-			this.btnOptions.TabIndex = 3;
-			this.btnOptions.Text = "Options";
-			this.btnOptions.UseVisualStyleBackColor = true;
 			// 
 			// btnExit
 			// 
@@ -116,6 +66,55 @@
 			this.btnExit.UseVisualStyleBackColor = true;
 			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
 			// 
+			// btnOptions
+			// 
+			this.btnOptions.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.btnOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnOptions.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.btnOptions.Location = new System.Drawing.Point(403, 390);
+			this.btnOptions.Name = "btnOptions";
+			this.btnOptions.Size = new System.Drawing.Size(200, 32);
+			this.btnOptions.TabIndex = 3;
+			this.btnOptions.Text = "Options";
+			this.btnOptions.UseVisualStyleBackColor = true;
+			// 
+			// btnNewGame
+			// 
+			this.btnNewGame.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.btnNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnNewGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnNewGame.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.btnNewGame.Location = new System.Drawing.Point(403, 352);
+			this.btnNewGame.Name = "btnNewGame";
+			this.btnNewGame.Size = new System.Drawing.Size(200, 32);
+			this.btnNewGame.TabIndex = 2;
+			this.btnNewGame.Text = "New Game";
+			this.btnNewGame.UseVisualStyleBackColor = true;
+			// 
+			// lblCredit
+			// 
+			this.lblCredit.AutoSize = true;
+			this.lblCredit.ForeColor = System.Drawing.Color.White;
+			this.lblCredit.Location = new System.Drawing.Point(871, 695);
+			this.lblCredit.Name = "lblCredit";
+			this.lblCredit.Size = new System.Drawing.Size(123, 17);
+			this.lblCredit.TabIndex = 1;
+			this.lblCredit.Text = "by Dmytro Polutov";
+			this.lblCredit.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+			// 
+			// pbLogo
+			// 
+			this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+			this.pbLogo.InitialImage = null;
+			this.pbLogo.Location = new System.Drawing.Point(250, 150);
+			this.pbLogo.Name = "pbLogo";
+			this.pbLogo.Size = new System.Drawing.Size(500, 156);
+			this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pbLogo.TabIndex = 0;
+			this.pbLogo.TabStop = false;
+			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -129,7 +128,6 @@
 			this.Name = "frmMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Arcanoid";
-			this.Load += new System.EventHandler(this.frmMain_Load);
 			this.pnlMainMenu.ResumeLayout(false);
 			this.pnlMainMenu.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
