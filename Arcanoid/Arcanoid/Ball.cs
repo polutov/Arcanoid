@@ -22,5 +22,7 @@ namespace Arcanoid
 		public Point Bottom { get { return new Point(X + Size / 2, Y + Size); } }
 		public Point Left { get { return new Point(X, Y + Size / 2); } }
 		public Point Right { get { return new Point(X + Size, Y + Size / 2); } }
+
+		
 	}
 }

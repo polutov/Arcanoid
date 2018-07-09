@@ -70,44 +70,43 @@ namespace Arcanoid
 
 				// Bricks check
 				// ТУДУ Сделать проверку координат шарика выше нижнего кубика и ниже верхнего, чтобы не делать лишних проверок в пустом пространстве
-				foreach (Brick br in game.Bricks)
+				if (ball.Top.Y <= game.Bricks[game.Bricks.Count - 1].Rect.Bottom)
 				{
-					if ((br.Rect.Contains(ball.Left) && ball.SpeedH < 0) || (br.Rect.Contains(ball.Right) && ball.SpeedH > 0))
+					for (int i = 0; i < game.Bricks.Count; i++)
 					{
-						ball.SpeedH *= -1;
-						//BreakBrick(br);
-						//break;
-					}
+						if ((game.Bricks[i].Rect.Contains(ball.Left) && ball.SpeedH < 0) || (game.Bricks[i].Rect.Contains(ball.Right) && ball.SpeedH > 0))
+						{
+							ball.SpeedH *= -1;
+							game.HitBrick(i);
+						}
 
-					if ((br.Rect.Contains(ball.Top) && ball.SpeedV < 0) || (br.Rect.Contains(ball.Bottom) && ball.SpeedV > 0))
-					{
-						ball.SpeedV *= -1;
-						//BreakBrick(br);
-						//break;
+						if ((game.Bricks[i].Rect.Contains(ball.Top) && ball.SpeedV < 0) || (game.Bricks[i].Rect.Contains(ball.Bottom) && ball.SpeedV > 0))
+						{
+							ball.SpeedV *= -1;
+							game.HitBrick(i);
+						}
 					}
 				}
+				
 
 				// Pad Check
+				// Градус отскока зависит от места удара шара об панель
 				if (game.PlayerPad.Rect.Contains(ball.Bottom) && ball.SpeedV > 0)
 				{
 					ball.SpeedV *= -1;
+
+					int padCenterX = game.PlayerPad.X + game.PlayerPad.Width / 2;
+
+					ball.SpeedH = (int)((double)(ball.Bottom.X - padCenterX) / (game.PlayerPad.Width / 2) * 6);
 				}
 			}
 
 			this.Invalidate();
 		}
 
-		private void frmMain_KeyDown(object sender, KeyEventArgs e)
+		private void frmMain_MouseMove(object sender, MouseEventArgs e)
 		{
-			if (e.KeyData == Keys.Right)
-			{
-				game.MovePadRight();
-			}
-
-			if (e.KeyData == Keys.Left)
-			{
-				game.MovePadLeft();
-			}
+			game.MovePad(e.X);
 		}
 	}
 }

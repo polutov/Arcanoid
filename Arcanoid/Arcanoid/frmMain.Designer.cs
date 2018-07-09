@@ -54,7 +54,7 @@
 			// tmrUpdate
 			// 
 			this.tmrUpdate.Enabled = true;
-			this.tmrUpdate.Interval = 1;
+			this.tmrUpdate.Interval = 10;
 			this.tmrUpdate.Tick += new System.EventHandler(this.tmrUpdate_Tick);
 			// 
 			// ilBalls
@@ -210,13 +210,13 @@
 			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.MaximizeBox = false;
 			this.Name = "frmMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Arcanoid";
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
-			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmMain_MouseMove);
 			((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
 			this.gbSpeed.ResumeLayout(false);
 			this.gbLevel.ResumeLayout(false);

@@ -30,9 +30,9 @@ namespace Arcanoid
 			ActivePlayer = new Player();
 
 			Balls = new List<Ball>();
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < 1; i++)
 			{
-				Balls.Add(new Ball { Size = 16, SpeedH = r.Next(-6, -1) * (int)Math.Pow(-1, r.Next(1, 3)), SpeedV = r.Next(-6, -1) * (int)Math.Pow(-1, r.Next(1, 3)), X = 304, Y = 464 });
+				Balls.Add(new Ball { Size = 16, SpeedH = 0, SpeedV = 5, X = (PlayField.Left + PlayField.Right) / 2 - 8, Y = 464 });
 			}
 
 			Bricks = new List<Brick>();
@@ -47,23 +47,33 @@ namespace Arcanoid
 			PlayerPad = new Pad { Width = 104, Height = 24, X = (PlayField.Left + PlayField.Right / 2) - 52, Y = 10 + 24 * 26 };
 		}
 
-		internal void MovePadRight()
+		public void MovePad(int x)
 		{
-			PlayerPad.X += 10;
+			PlayerPad.X = x - PlayerPad.Width / 2;
 
 			if (PlayerPad.X + PlayerPad.Width > PlayField.Right)
 			{
 				PlayerPad.X = PlayField.Right - PlayerPad.Width;
 			}
-		}
-
-		internal void MovePadLeft()
-		{
-			PlayerPad.X -= 10;
-
-			if (PlayerPad.X < PlayField.Left)
+			else if (PlayerPad.X < PlayField.Left)
 			{
 				PlayerPad.X = PlayField.Left;
+			}
+		}
+
+		internal void HitBrick(int i)
+		{
+			if (Bricks[i].HP == 1)
+			{
+				Bricks.RemoveAt(i);
+				Score += 10 * ScoreMultiplier;
+				ScoreMultiplier++;
+			}
+			else if (Bricks[i].HP > 1)
+			{
+				Bricks[i].HP--;
+				Score += 5 * ScoreMultiplier;
+				ScoreMultiplier++;
 			}
 		}
 	}
