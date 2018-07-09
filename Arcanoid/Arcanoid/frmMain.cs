@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Arcanoid
 {
-	public partial class frmMain : Form
+	public partial class frmGame : Form
 	{
 		Game game;
 
-		public frmMain()
+		public frmGame()
 		{
 			InitializeComponent();
 			game = new Game();
@@ -40,6 +40,10 @@ namespace Arcanoid
 			e.Graphics.DrawImage(ilPads.Images[0], game.PlayerPad.X, game.PlayerPad.Y);
 
 			e.Graphics.DrawRectangle(new Pen(Color.Red), game.PlayField);
+
+			lblMultiplier.Text = "x" + game.ScoreMultiplier.ToString();
+			lblScore.Text = game.Score.ToString();
+			lblLives.Text = game.Lives.ToString();
 		}
 
 		private void tmrUpdate_Tick(object sender, EventArgs e)
@@ -52,42 +56,53 @@ namespace Arcanoid
 
 				// Проверяем выход шарика за границы поля и отражаем его траекторию
 				// Проверка горизонтальной и вертикальной скоростей необходима для того, чтобы шарик не "залипал" в краях
-				if ((!game.PlayField.Contains(ball.Left) && ball.SpeedH < 0) || (!game.PlayField.Contains(ball.Right) && ball.SpeedH > 0))
+				if ((ball.Left.X <= game.PlayField.Left && ball.SpeedH < 0) || (ball.Right.X >= game.PlayField.Right && ball.SpeedH > 0))
 				{
 					ball.SpeedH *= -1;
 				}
 				 
-				if ((!game.PlayField.Contains(ball.Top) && ball.SpeedV < 0) || !game.PlayField.Contains(ball.Bottom))
+				if (ball.Top.Y <= game.PlayField.Top && ball.SpeedV < 0)
 				{
 					ball.SpeedV *= -1;
 				}
 
-				//if (!game.PlayField.Contains(ball.Bottom))
-				//{
-				//	game.Balls.Remove(ball);
-				//	break;
-				//}
+				if (ball.Bottom.Y >= game.PlayField.Bottom)
+				{
+					game.RemoveBall(ball);
+
+					if (game.CheckLives())
+					{
+						game.ThrowBall();
+					}
+					else
+					{
+						GameOver();
+					}
+
+					break;
+				}
 
 				// Bricks check
 				// ТУДУ Сделать проверку координат шарика выше нижнего кубика и ниже верхнего, чтобы не делать лишних проверок в пустом пространстве
-				if (ball.Top.Y <= game.Bricks[game.Bricks.Count - 1].Rect.Bottom)
+				if (game.Bricks.Count > 0 && ball.Top.Y <= game.Bricks[game.Bricks.Count - 1].Rect.Bottom)
 				{
-					for (int i = 0; i < game.Bricks.Count; i++)
+					foreach (Brick brick in game.Bricks)
 					{
-						if ((game.Bricks[i].Rect.Contains(ball.Left) && ball.SpeedH < 0) || (game.Bricks[i].Rect.Contains(ball.Right) && ball.SpeedH > 0))
+						if ((brick.Rect.Contains(ball.Left) && ball.SpeedH < 0) || (brick.Rect.Contains(ball.Right) && ball.SpeedH > 0))
 						{
 							ball.SpeedH *= -1;
-							game.HitBrick(i);
+							game.HitBrick(brick);
+							break;
 						}
 
-						if ((game.Bricks[i].Rect.Contains(ball.Top) && ball.SpeedV < 0) || (game.Bricks[i].Rect.Contains(ball.Bottom) && ball.SpeedV > 0))
+						if ((brick.Rect.Contains(ball.Top) && ball.SpeedV < 0) || (brick.Rect.Contains(ball.Bottom) && ball.SpeedV > 0))
 						{
 							ball.SpeedV *= -1;
-							game.HitBrick(i);
+							game.HitBrick(brick);
+							break;
 						}
 					}
 				}
-				
 
 				// Pad Check
 				// Градус отскока зависит от места удара шара об панель
@@ -98,6 +113,8 @@ namespace Arcanoid
 					int padCenterX = game.PlayerPad.X + game.PlayerPad.Width / 2;
 
 					ball.SpeedH = (int)((double)(ball.Bottom.X - padCenterX) / (game.PlayerPad.Width / 2) * 6);
+
+					game.ScoreMultiplier = 1;
 				}
 			}
 
@@ -107,6 +124,13 @@ namespace Arcanoid
 		private void frmMain_MouseMove(object sender, MouseEventArgs e)
 		{
 			game.MovePad(e.X);
+		}
+
+		public void GameOver()
+		{
+			tmrUpdate.Stop();
+			lblGOScore.Text = game.Score.ToString();
+			pnlGameOver.Visible = true;
 		}
 	}
 }

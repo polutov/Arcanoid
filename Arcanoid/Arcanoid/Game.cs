@@ -28,11 +28,15 @@ namespace Arcanoid
 			PlayField = new Rectangle(10, 10, 624, 696);
 
 			ActivePlayer = new Player();
+			Score = 0;
+			ScoreMultiplier = 1;
+
+			Lives = 3;
 
 			Balls = new List<Ball>();
 			for (int i = 0; i < 1; i++)
 			{
-				Balls.Add(new Ball { Size = 16, SpeedH = 0, SpeedV = 5, X = (PlayField.Left + PlayField.Right) / 2 - 8, Y = 464 });
+				ThrowBall();
 			}
 
 			Bricks = new List<Brick>();
@@ -45,6 +49,11 @@ namespace Arcanoid
 			}
 
 			PlayerPad = new Pad { Width = 104, Height = 24, X = (PlayField.Left + PlayField.Right / 2) - 52, Y = 10 + 24 * 26 };
+		}
+
+		public void ThrowBall()
+		{
+			Balls.Add(new Ball { Size = 16, SpeedH = 0, SpeedV = 5, X = (PlayField.Left + PlayField.Right) / 2 - 8, Y = 400 });
 		}
 
 		public void MovePad(int x)
@@ -61,19 +70,41 @@ namespace Arcanoid
 			}
 		}
 
-		internal void HitBrick(int i)
+		internal void HitBrick(Brick brick)
 		{
-			if (Bricks[i].HP == 1)
+			if (brick.HP == 1)
 			{
-				Bricks.RemoveAt(i);
+				Bricks.Remove(brick);
 				Score += 10 * ScoreMultiplier;
 				ScoreMultiplier++;
 			}
-			else if (Bricks[i].HP > 1)
+			else if (brick.HP > 1)
 			{
-				Bricks[i].HP--;
+				brick.HP--;
 				Score += 5 * ScoreMultiplier;
 				ScoreMultiplier++;
+			}
+		}
+
+		internal void RemoveBall(Ball ball)
+		{
+			Balls.Remove(ball);
+
+			if (Balls.Count == 0)
+			{
+				Lives--;
+			}
+		}
+
+		public bool CheckLives()
+		{
+			if (Lives >= 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
 			}
 		}
 	}
