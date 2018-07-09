@@ -44,7 +44,27 @@ namespace Arcanoid
 				}
 			}
 
+			PlayerPad = new Pad { Width = 104, Height = 24, X = (PlayField.Left + PlayField.Right / 2) - 52, Y = 10 + 24 * 26 };
+		}
 
+		internal void MovePadRight()
+		{
+			PlayerPad.X += 10;
+
+			if (PlayerPad.X + PlayerPad.Width > PlayField.Right)
+			{
+				PlayerPad.X = PlayField.Right - PlayerPad.Width;
+			}
+		}
+
+		internal void MovePadLeft()
+		{
+			PlayerPad.X -= 10;
+
+			if (PlayerPad.X < PlayField.Left)
+			{
+				PlayerPad.X = PlayField.Left;
+			}
 		}
 	}
 }

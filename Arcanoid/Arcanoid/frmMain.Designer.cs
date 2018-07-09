@@ -53,6 +53,7 @@
 			// 
 			// tmrUpdate
 			// 
+			this.tmrUpdate.Enabled = true;
 			this.tmrUpdate.Interval = 1;
 			this.tmrUpdate.Tick += new System.EventHandler(this.tmrUpdate_Tick);
 			// 
@@ -215,6 +216,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Arcanoid";
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
 			((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
 			this.gbSpeed.ResumeLayout(false);
 			this.gbLevel.ResumeLayout(false);
