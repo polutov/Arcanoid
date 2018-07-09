@@ -54,6 +54,7 @@
 			// tmrUpdate
 			// 
 			this.tmrUpdate.Interval = 1;
+			this.tmrUpdate.Tick += new System.EventHandler(this.tmrUpdate_Tick);
 			// 
 			// ilBalls
 			// 
@@ -83,10 +84,9 @@
 			// pbLogo
 			// 
 			this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-			this.pbLogo.Location = new System.Drawing.Point(867, 13);
-			this.pbLogo.Margin = new System.Windows.Forms.Padding(4);
+			this.pbLogo.Location = new System.Drawing.Point(650, 11);
 			this.pbLogo.Name = "pbLogo";
-			this.pbLogo.Size = new System.Drawing.Size(267, 76);
+			this.pbLogo.Size = new System.Drawing.Size(200, 62);
 			this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pbLogo.TabIndex = 9;
 			this.pbLogo.TabStop = false;
@@ -96,11 +96,9 @@
 			this.gbSpeed.BackColor = System.Drawing.Color.White;
 			this.gbSpeed.Controls.Add(this.label3);
 			this.gbSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.gbSpeed.Location = new System.Drawing.Point(867, 365);
-			this.gbSpeed.Margin = new System.Windows.Forms.Padding(4);
+			this.gbSpeed.Location = new System.Drawing.Point(650, 297);
 			this.gbSpeed.Name = "gbSpeed";
-			this.gbSpeed.Padding = new System.Windows.Forms.Padding(4);
-			this.gbSpeed.Size = new System.Drawing.Size(267, 74);
+			this.gbSpeed.Size = new System.Drawing.Size(200, 60);
 			this.gbSpeed.TabIndex = 8;
 			this.gbSpeed.TabStop = false;
 			this.gbSpeed.Text = "Speed";
@@ -109,10 +107,9 @@
 			// 
 			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label3.Location = new System.Drawing.Point(59, 27);
-			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label3.Location = new System.Drawing.Point(44, 22);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(200, 39);
+			this.label3.Size = new System.Drawing.Size(150, 32);
 			this.label3.TabIndex = 1;
 			this.label3.Text = "12345689";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -122,11 +119,9 @@
 			this.gbLevel.BackColor = System.Drawing.Color.White;
 			this.gbLevel.Controls.Add(this.label2);
 			this.gbLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.gbLevel.Location = new System.Drawing.Point(867, 284);
-			this.gbLevel.Margin = new System.Windows.Forms.Padding(4);
+			this.gbLevel.Location = new System.Drawing.Point(650, 231);
 			this.gbLevel.Name = "gbLevel";
-			this.gbLevel.Padding = new System.Windows.Forms.Padding(4);
-			this.gbLevel.Size = new System.Drawing.Size(267, 74);
+			this.gbLevel.Size = new System.Drawing.Size(200, 60);
 			this.gbLevel.TabIndex = 7;
 			this.gbLevel.TabStop = false;
 			this.gbLevel.Text = "Level";
@@ -135,10 +130,9 @@
 			// 
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label2.Location = new System.Drawing.Point(59, 27);
-			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label2.Location = new System.Drawing.Point(44, 22);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(200, 39);
+			this.label2.Size = new System.Drawing.Size(150, 32);
 			this.label2.TabIndex = 1;
 			this.label2.Text = "12345689";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -148,11 +142,9 @@
 			this.gbLives.BackColor = System.Drawing.Color.White;
 			this.gbLives.Controls.Add(this.label1);
 			this.gbLives.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.gbLives.Location = new System.Drawing.Point(867, 203);
-			this.gbLives.Margin = new System.Windows.Forms.Padding(4);
+			this.gbLives.Location = new System.Drawing.Point(650, 165);
 			this.gbLives.Name = "gbLives";
-			this.gbLives.Padding = new System.Windows.Forms.Padding(4);
-			this.gbLives.Size = new System.Drawing.Size(267, 74);
+			this.gbLives.Size = new System.Drawing.Size(200, 60);
 			this.gbLives.TabIndex = 6;
 			this.gbLives.TabStop = false;
 			this.gbLives.Text = "Lives";
@@ -161,10 +153,9 @@
 			// 
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label1.Location = new System.Drawing.Point(59, 27);
-			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label1.Location = new System.Drawing.Point(44, 22);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(200, 39);
+			this.label1.Size = new System.Drawing.Size(150, 32);
 			this.label1.TabIndex = 1;
 			this.label1.Text = "12345689";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -175,11 +166,9 @@
 			this.gbScore.Controls.Add(this.lblMultiplier);
 			this.gbScore.Controls.Add(this.lblScore);
 			this.gbScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.gbScore.Location = new System.Drawing.Point(867, 97);
-			this.gbScore.Margin = new System.Windows.Forms.Padding(4);
+			this.gbScore.Location = new System.Drawing.Point(650, 79);
 			this.gbScore.Name = "gbScore";
-			this.gbScore.Padding = new System.Windows.Forms.Padding(4);
-			this.gbScore.Size = new System.Drawing.Size(267, 98);
+			this.gbScore.Size = new System.Drawing.Size(200, 80);
 			this.gbScore.TabIndex = 5;
 			this.gbScore.TabStop = false;
 			this.gbScore.Text = "Score";
@@ -188,10 +177,9 @@
 			// 
 			this.lblMultiplier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblMultiplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.lblMultiplier.Location = new System.Drawing.Point(59, 65);
-			this.lblMultiplier.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblMultiplier.Location = new System.Drawing.Point(44, 53);
 			this.lblMultiplier.Name = "lblMultiplier";
-			this.lblMultiplier.Size = new System.Drawing.Size(200, 30);
+			this.lblMultiplier.Size = new System.Drawing.Size(150, 24);
 			this.lblMultiplier.TabIndex = 1;
 			this.lblMultiplier.Text = "x1";
 			this.lblMultiplier.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -200,31 +188,33 @@
 			// 
 			this.lblScore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.lblScore.Location = new System.Drawing.Point(59, 27);
-			this.lblScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblScore.Location = new System.Drawing.Point(44, 22);
 			this.lblScore.Name = "lblScore";
-			this.lblScore.Size = new System.Drawing.Size(200, 39);
+			this.lblScore.Size = new System.Drawing.Size(150, 32);
 			this.lblScore.TabIndex = 0;
 			this.lblScore.Text = "12345689";
 			this.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// frmMain
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(1147, 888);
+			this.ClientSize = new System.Drawing.Size(855, 717);
 			this.Controls.Add(this.pbLogo);
 			this.Controls.Add(this.gbSpeed);
 			this.Controls.Add(this.gbLevel);
 			this.Controls.Add(this.gbLives);
 			this.Controls.Add(this.gbScore);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.DoubleBuffered = true;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
 			this.MaximizeBox = false;
 			this.Name = "frmMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Arcanoid";
+			this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmMain_Paint);
 			((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
 			this.gbSpeed.ResumeLayout(false);
 			this.gbLevel.ResumeLayout(false);
